@@ -1,0 +1,31 @@
+body{
+	background-color: #f4f4f4;
+}
+
+#coluna_esquerda{
+	border-style: solid;
+	border-width: 1px;
+	float: left;
+	width: 50%;
+	margin-left: 3%;
+}
+
+#coluna_direita{
+	border-style: solid;
+	border-width: 1px;
+	float: right;
+	width: 40%;
+}
+
+a:link{
+	color: black;
+	text-decoration: none;
+}
+a:hover{
+	color: black;
+	text-decoration: none;
+}
+a:visited{
+	color: black;
+	text-decoration: none;
+}
