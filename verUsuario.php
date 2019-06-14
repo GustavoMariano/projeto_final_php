@@ -14,7 +14,6 @@ if ($rsUsuario->execute()) {
 			echo "<p>USUÁRIO: {$mostraUsuario->login}</p>";
 			echo "<p>NIVEL: {$mostraUsuario->nivel}</p>";
 			echo "</p>";
-			echo "string";
 			
 			?>
 			<br>
