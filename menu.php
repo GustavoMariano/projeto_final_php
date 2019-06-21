@@ -3,7 +3,6 @@
 </head>
 <center>
 <?php
-session_start();
 $rs = $pdo->prepare("SELECT * FROM tb_site");
 $rs->execute();
 $infoSite = $rs->fetchall(PDO::FETCH_OBJ);
