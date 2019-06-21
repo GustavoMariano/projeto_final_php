@@ -1,3 +1,7 @@
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>	
 <?php
 session_start();
 require 'validaLogin.php';
@@ -15,7 +19,7 @@ if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 3) {
 
 	?>
 	<center>
-		<h1>EDITAR AVISO:</h1>
+		<h1>EDITAR AVISO</h1>
 		<br><br>
 		<form action="QEditAviso.php" method="POST">
 
@@ -40,7 +44,7 @@ if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 3) {
 	<input name="levaId" type="hidden" value="<?php echo $_POST['levaId']; ?>" />
 	<br>
 	<p>
-		<input type="submit" name="btnEditAviso">
+		<button class="btn btn-success" input type="submit" name="btnEditAviso"> ATUALIZAR </button>
 	</p>
 </form>
 </center>

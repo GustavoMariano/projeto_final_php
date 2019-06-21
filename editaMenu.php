@@ -1,3 +1,7 @@
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>	
 <center>
 	<?php
 	session_start();
@@ -7,7 +11,7 @@
 	if (@$_SESSION['nivel'] == 1) {
 		?>
 		<br><br>
-		<h1>EDITAR SITE:</h1>
+		<h1>EDITAR SITE</h1>
 		<br><br>
 		<form action="QAddMenu.php" method="POST" enctype="multipart/form-data">
 			<p>Nome: <br>
@@ -28,7 +32,7 @@
 
 			<br>
 			<p><br>
-				<input type="submit" name="btnEditMenu">
+				<button class="btn btn-success" input type="submit" name="btnEditMenu">ATUALIZAR </button>
 			</p>
 		</form>
 	</center>

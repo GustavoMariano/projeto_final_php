@@ -1,9 +1,21 @@
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>	
 <?php
 session_start();
 require 'validaLogin.php';
 include 'conectaDB.php';
 include 'menu.php';
 if (@$_SESSION['nivel'] == 1) {
+
+	$qatnot = array(
+		':id' => $_POST['levaId']
+	);
+
+	$rs = $pdo->prepare("SELECT * FROM `tb_usuario` WHERE id=:id");
+	$rs->execute($qatnot);
+	$qatnot = $rs->fetch(PDO::FETCH_OBJ);
 	?>
 	<center>
 		<p> <h3> ID DO USUARIO A SER EDITADO: <?php echo @$_POST['levaId']; ?>
@@ -12,15 +24,15 @@ if (@$_SESSION['nivel'] == 1) {
 <form action="QEditUsuario.php" method="POST">
 
 	<p>Nome: <br>
-		<input type="text" name="nome" required="" >
+		<input type="text" name="nome" required="" value="<?php echo $qatnot->nome ?>" >
 	</p>
 
 	<p>User: <br>
-		<input type="text" name="usuario" required="" >
+		<input type="text" name="usuario" required="" value="<?php echo $qatnot->login ?>" >
 	</p>
 
 	<p>Senha: <br>
-		<input type="password" name="senha" required="" >
+		<input type="password" name="senha" required="" value="<?php echo $qatnot->senha ?>" >
 	</p>
 
 	<p>Nivel de conta: <br>
@@ -34,7 +46,7 @@ if (@$_SESSION['nivel'] == 1) {
 	<input name="levaId" type="hidden" value="<?php echo @$_POST['levaId']; ?>" />
 
 	<p>
-		<input type="submit" name="AddUsuario">
+		<button class="btn btn-success" input type="submit" name="AddUsuario">ATUALIZAR</button>
 	</p>
 </form>
 <?php

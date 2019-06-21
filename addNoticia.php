@@ -1,3 +1,7 @@
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>	
 <?php
 session_start();
 require 'validaLogin.php';
@@ -41,7 +45,7 @@ if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 2) {
 
 			<br>
 			<p>
-				<input type="submit" name="btnAddNoticia">
+				<button class="btn btn-success" input type="submit" name="btnAddNoticia">ADICIONAR</button>
 			</p>
 		</form>
 	</center>

@@ -1,3 +1,7 @@
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>	
 <?php
 session_start();
 require 'validaLogin.php';
@@ -16,7 +20,7 @@ if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 2) {
 
 	?>
 	<center>
-		<h1>EDITAR AVISO:</h1>
+		<h1>EDITAR NOTICIA</h1>
 		<br><br>
 		<form action="QEditNoticia.php" method="POST" enctype="multipart/form-data">
 
@@ -55,7 +59,7 @@ if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 2) {
 	<input name="levaId" type="hidden" value="<?php echo $_POST['levaId']; ?>" />
 	<br>
 	<p>
-		<input type="submit" name="btnEditNoticia">
+		<button class="btn btn-success" input type="submit" name="btnEditNoticia">ATUALIZAR</button>
 	</p>
 </form>
 </center>
