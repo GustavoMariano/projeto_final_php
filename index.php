@@ -25,7 +25,9 @@
 				<h1>Notícias</h1> 
 				<br><br>
 				<?php if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 2) {?>
-					<button class="btn btn-info"><a href="addNoticia.php">Adicionar Noticia</a></button>					
+					<div class="card" style="width: 18rem;">
+					<button class="btn btn-info"><a href="addNoticia.php">Adicionar Noticia</a></button>	
+					</div>				
 				<?php } ?>
 			</center>
 
@@ -38,27 +40,33 @@
 			}
 
 			if ($rsNoticia->execute()) {
-				if ($rsNoticia->rowCount() > 0) {
+				if ($rsNoticia->rowCount() > 0) { 
+
 					while ($mostraNoticia = $rsNoticia->fetch(PDO::FETCH_OBJ)) {
-						echo "<p><center>";
-						echo "<h3><a href='mostraNoticia.php?idNoticia=$mostraNoticia->id'>{$mostraNoticia->titulo}</h3></a>";
-						echo "<p>{$mostraNoticia->resumo}</p>";
-						echo "<p>{$mostraNoticia->data_entra_ar}</p>";
-						echo "</p><br>";
+						?>
+						<center>
+							<div class="card" style="width: 18rem;">
+								<div class="card-body">
+									<h5 class="card-title"><?php echo "<h3><a href='mostraNoticia.php?idNoticia=$mostraNoticia->id'>{$mostraNoticia->titulo}</h3></a>"; ?></h5>
+									<h6 class="card-subtitle mb-2 text-muted"><?php echo "{$mostraNoticia->resumo}"; ?></h6>
+									<p class="card-text"><?php echo "{$mostraNoticia->data_entra_ar}"; ?> </p>
+								</div>
+							</div>
 
-
-						if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 2) {
-							?>
-							<form action="editaNoticia.php" method="POST">
-								<input type="hidden" name="levaId" value="<?php echo $mostraNoticia->id ?>">
-								<button class="btn btn-warning" type='submit'>Alterar</button>
-							</form>
-
-							<form action="QDelNoticia.php" method="POST">
-								<input type="hidden" name="levaId" value="<?php echo $mostraNoticia->id ?>">
-								<button class="btn btn-danger" type='submit'>Deletar</button>
-							</form>
-
+							<?php
+							if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 2) {
+								?>
+								<table>
+									<form action="editaNoticia.php" method="POST">
+										<input type="hidden" name="levaId" value="<?php echo $mostraNoticia->id ?>">
+										<button class="btn btn-warning" type='submit'>Alterar</button>
+									</form>
+									<form action="QDelNoticia.php" method="POST">
+										<input type="hidden" name="levaId" value="<?php echo $mostraNoticia->id ?>">
+										<button class="btn btn-danger" type='submit'>Deletar</button>
+									</form>
+								</table>
+							</center>
 							<?php
 						}
 
@@ -74,7 +82,9 @@
 				<h1>Avisos</h1>
 				<br><br>
 				<?php if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 3) {?>
-					<button class="btn btn-info"><a href="addAviso.php">Adicionar Aviso</a></button>					
+					<div class="card" style="width: 18rem;">
+					<button class="btn btn-info"><a href="addAviso.php">Adicionar Aviso</a></button>	
+					</div>				
 				<?php } ?>
 			</center>
 
@@ -88,32 +98,39 @@
 
 			if ($rs2->execute()) {
 				if ($rs2->rowCount() > 0) {
-					while ($mostraAvisos = $rs2->fetch(PDO::FETCH_OBJ)) {
-						echo "<p><center>";
-						echo "<h3><a href='mostraAviso.php?idAviso=$mostraAvisos->id'>{$mostraAvisos->aviso}</h3></a>";
-						echo "<p>{$mostraAvisos->data_entra_ar}</p>";
-						echo "</p><br>";
+					while ($mostraAvisos = $rs2->fetch(PDO::FETCH_OBJ)) {?>
+						<center>
 
-						if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 3) {
-							?>
-							<form action="editaAviso.php" method="POST">
-								<input type="hidden" name="levaId" value="<?php echo $mostraAvisos->id ?>">
-								<button class="btn btn-warning" type='submit'>Alterar</button>
-							</form>
+							<div class="card" style="width: 18rem;">
+								<div class="card-body">
+									<h5 class="card-title"><?php echo "<h3><a href='mostraAviso.php?idAviso=$mostraAvisos->id'>{$mostraAvisos->aviso}</h3></a>"; ?></h5>
+									<p class="card-text"><?php echo "{$mostraAvisos->data_entra_ar}"; ?> </p>
+								</div>
+							</div>
 
-							<form action="QDelAviso.php" method="POST">
-								<input type="hidden" name="levaId" value="<?php echo $mostraAvisos->id ?>">
-								<button class="btn btn-danger" type='submit'>Deletar</button>
-							</form>
 							<?php
-						}							
+							if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 3) {
+								?>
+								<table>
+								<form action="editaAviso.php" method="POST">
+									<input type="hidden" name="levaId" value="<?php echo $mostraAvisos->id ?>">
+									<button class="btn btn-warning" type='submit'>Alterar</button>
+								</form>
+
+								<form action="QDelAviso.php" method="POST">
+									<input type="hidden" name="levaId" value="<?php echo $mostraAvisos->id ?>">
+									<button class="btn btn-danger" type='submit'>Deletar</button>
+								</form>
+								</table>
+								<?php
+							}							
+						}
 					}
 				}
-			}
-			?>
+				?>
+			</dl>
 		</dl>
-	</dl>
-	<br>
+		<br>
 
-</body>
-</html>
+	</body>
+	</html>
