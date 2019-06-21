@@ -29,10 +29,10 @@ session_start();
 
 
 			<?php
-			if (@$_SESSION['nivel'] == 1) {
+			if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 2) {
 				$rsNoticia = $pdo->prepare("SELECT * from tb_noticia order by id DESC");
 			} else {
-				$rsNoticia = $pdo->prepare("SELECT * FROM tb_noticia WHERE (data_entra_ar <= CURRENT_TIMESTAMP AND data_sai_ar > CURRENT_TIMESTAMP)");
+				$rsNoticia = $pdo->prepare("SELECT * FROM tb_noticia WHERE (data_entra_ar <= CURRENT_TIMESTAMP AND data_sai_ar > CURRENT_TIMESTAMP) order by id DESC");
 			}
 
 			if ($rsNoticia->execute()) {
@@ -79,10 +79,10 @@ session_start();
 
 		<div>
 			<?php
-			if (@$_SESSION['nivel'] == 1) {
+			if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 3) {
 				$rs2 = $pdo->prepare("SELECT * from tb_aviso order by id DESC");
 			} else {
-				$rs2 = $pdo->prepare("SELECT * FROM tb_aviso WHERE (data_entra_ar <= CURRENT_TIMESTAMP AND data_sai_ar > CURRENT_TIMESTAMP) order by id desc LIMIT 5");
+				$rs2 = $pdo->prepare("SELECT * FROM tb_aviso WHERE (data_entra_ar <= CURRENT_TIMESTAMP AND data_sai_ar > CURRENT_TIMESTAMP) order by id desc");
 			}
 
 			if ($rs2->execute()) {

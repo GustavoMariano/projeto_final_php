@@ -22,7 +22,7 @@ $atualiza_noticia = array(
 	':autor' => $_SESSION['autor']
 );
 
-$sql = $pdo->prepare("UPDATE `tb_noticia` SET `id`=:id, `titulo`=:titulo,`resumo`=:resumo,`texto`=texto,`data_cadastro`=CURRENT_TIMESTAMP,`data_entra_ar`=:data_entra_ar,`data_sai_ar`=:data_sai_ar,`responsavel`=:autor,`imagem`=:imagem WHERE id=:id");
+$sql = $pdo->prepare("UPDATE `tb_noticia` SET `id`=:id, `titulo`=:titulo,`resumo`=:resumo,`texto`=:texto,`data_cadastro`=CURRENT_TIMESTAMP,`data_entra_ar`=:data_entra_ar,`data_sai_ar`=:data_sai_ar,`responsavel`=:autor,`imagem`=:imagem WHERE id=:id");
 $sql->execute($atualiza_noticia);
 
 if ($sql->rowCount() > 0) {
