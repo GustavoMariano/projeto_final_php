@@ -53,6 +53,7 @@ if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 2) {
 
 
 	<p>
+		<img src="<?php echo $qatnot->imagem; ?>" width="125" height="100">
 		<input type="file" name="imagem" required=""/>
 	</p>
 

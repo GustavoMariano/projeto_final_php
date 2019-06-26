@@ -1,6 +1,6 @@
 <head>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>	
 <body>
 	<?php
@@ -26,7 +26,7 @@
 				<br><br>
 				<?php if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 2) {?>
 					<div class="card" style="width: 18rem;">
-					<button class="btn btn-info"><a href="addNoticia.php">Adicionar Noticia</a></button>	
+					<button class="btn btn-info"><a href="addNoticia.php"><font color="white">Adicionar Noticia</font></a></button>	
 					</div>				
 				<?php } ?>
 			</center>
@@ -83,7 +83,7 @@
 				<br><br>
 				<?php if (@$_SESSION['nivel'] == 1 || @$_SESSION['nivel'] == 3) {?>
 					<div class="card" style="width: 18rem;">
-					<button class="btn btn-info"><a href="addAviso.php">Adicionar Aviso</a></button>	
+					<button class="btn btn-info"><a href="addAviso.php"><font color="white">Adicionar Aviso</font></a></button>	
 					</div>				
 				<?php } ?>
 			</center>

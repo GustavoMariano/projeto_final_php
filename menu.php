@@ -25,7 +25,7 @@ endforeach;
 
 if (isset($_SESSION['nivel'])) {
     ?>
-<button class="btn btn-danger"><a href="logoff.php">Sair</a></button>
+<button class="btn btn-danger"><a href="logoff.php"><font color="white">Sair</font></a></button>
 
 <?php } else { ?>
     
